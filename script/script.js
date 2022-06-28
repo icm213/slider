@@ -1,39 +1,34 @@
 const prev = document.querySelector('#prev')
 const next = document.querySelector('#next')
-const elem = document.querySelectorAll('.elem')
+const elem = document.querySelectorAll('.slider--elem')
 
-let elemValues = [0,1,2,3,4]
+let elemValues = [0,1,2,3]
 let slideNumber = 0
 
-function stop() {
+const restarsInterval = () => {
     clearInterval(time)
     time = setInterval(()=>{slideUp(slideNumber+1)}, 3000)
 }
 
-function slideUp(num) {
+const slideUp = num => {
     slideNumber = num
-    if (slideNumber>4){slideNumber = 0}
-    if (slideNumber<0){slideNumber = 4}
+    if (slideNumber>3){slideNumber = 0}
+    if (slideNumber<0){slideNumber = 3}
     for (let i = 0; i< elem.length; i++) {
         elem[i] = elemValues[i]
         if (elemValues[i] === slideNumber) {
             elem[i].style.display = 'block'
+            elem[i].classList.remove('fade--out')
         } else {
-            elem[i].style.display = 'none'
+            elem[i].classList.add('fade--out')
+            setTimeout(()=>{elem[i].style.display = 'none'}, 300)
         }
-    }    console.log(slideNumber)
+    }    
+    console.log(slideNumber)
 }
 
 slideUp(slideNumber)
 let time = setInterval(()=>{slideUp(slideNumber+1)}, 3000)
 
-next.addEventListener('click', ()=>{slideUp(slideNumber+1);stop()})
-prev.addEventListener('click', ()=>{slideUp(slideNumber-1);stop()})
-
-
-
-
-
-
-
-
+next.addEventListener('click', ()=>{slideUp(slideNumber+1);restarsInterval()})
+prev.addEventListener('click', ()=>{slideUp(slideNumber-1);restarsInterval()})

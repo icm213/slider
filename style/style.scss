@@ -2,55 +2,73 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
+}
+
+.flexBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
+    @extend .flexBox;
+    justify-content: space-around;
     position: relative;
     width: 100vw;
     height: 100vh;
     button {
         position: absolute;
-        top: 50%;
         width: 3rem;
         height: 3rem;
     }
+    
     #prev {
         left: 2rem;
     }
-    
+
     #next {
         right: 2rem;
     }
     .slider {
-        // display: flex;
+        @extend .flexBox;
         position: absolute;
-        top: 50%;
-        right: 50%;
-        height: 17rem;
-        width: 17rem;
+        height: 50vh;
+        width: 50vw;
         border: solid red 1px;
-        overflow: hidden;
-        .elem {
-            height: 15rem;
-            width: 15rem;
+        .slider--elem {
+            @extend .flexBox;
+            position: absolute;
+            height: auto;
+            width: 100%;
             display: none;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: auto;
+            }
         }
-        .elem1 {
+        // .slider--elem1 {
 
-            background-color: lightgreen;
-        }
-        .elem2 {
-            background-color: lightblue;
-        }
-        .elem3 {
-            background-color: lightcoral;
-        }
-        .elem4 {
-            background-color: lightpink;
-        }
-        .elem5 {
-            background-color: lightseagreen;
-        }
+        //     // background-color: lightgreen;
+        // }
+        // .slider--elem2 {
+        //     // background-color: lightblue;
+        // }
+        // .slider--elem3 {
+        //     // background-color: lightsalmon;
+        // }
+        // .slider--elem4 {
+        //     // background-color: lightpink;
+        // }
     }
 }
 
+.fade--out {
+    animation: fadeOut 0.3s forwards;
+    z-index: 2;
+    @keyframes fadeOut { 
+        0% {opacity: 1;}
+        100% {opacity: 0;}
+    }
+}
