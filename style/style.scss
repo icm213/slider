@@ -39,13 +39,13 @@ main {
         .slider--elem {
             @extend .flexBox;
             position: absolute;
-            height: 100%;
+            height: auto;
             width: 100%;
             display: none;
             overflow: hidden;
             img {
-                width: auto;
-                height: 100%;
+                width: 100%;
+                height: auto;
             }
         }
         // .slider--elem1 {
