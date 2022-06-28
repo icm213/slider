@@ -7,7 +7,7 @@ let slideNumber = 0
 
 const restarsInterval = () => {
     clearInterval(time)
-    time = setInterval(()=>{slideUp(slideNumber+1)}, 3000)
+    time = setInterval(()=>{slideUp(slideNumber+1)}, 6000)
 }
 
 const slideUp = num => {
@@ -18,9 +18,11 @@ const slideUp = num => {
         elem[i] = elemValues[i]
         if (elemValues[i] === slideNumber) {
             elem[i].style.display = 'block'
+            elem[i].classList.add('scale')
             elem[i].classList.remove('fade--out')
         } else {
             elem[i].classList.add('fade--out')
+            elem[i].classList.remove('scale')
             setTimeout(()=>{elem[i].style.display = 'none'}, 300)
         }
     }    
@@ -28,7 +30,7 @@ const slideUp = num => {
 }
 
 slideUp(slideNumber)
-let time = setInterval(()=>{slideUp(slideNumber+1)}, 3000)
+let time = setInterval(()=>{slideUp(slideNumber+1)}, 6000)
 
 next.addEventListener('click', ()=>{slideUp(slideNumber+1);restarsInterval()})
 prev.addEventListener('click', ()=>{slideUp(slideNumber-1);restarsInterval()})

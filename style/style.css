@@ -41,15 +41,15 @@ main .slider {
 
 main .slider .slider--elem {
   position: absolute;
-  height: auto;
+  height: 100%;
   width: 100%;
   display: none;
   overflow: hidden;
 }
 
 main .slider .slider--elem img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 .fade--out {
@@ -63,5 +63,18 @@ main .slider .slider--elem img {
   }
   100% {
     opacity: 0;
+  }
+}
+
+.scale {
+  animation: scale 6s linear forwards;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
   }
 }
