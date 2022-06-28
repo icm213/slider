@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+main button {
+  position: absolute;
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+}
+
+main #prev {
+  left: 2rem;
+}
+
+main #next {
+  right: 2rem;
+}
+
+main .slider {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  height: 17rem;
+  width: 17rem;
+  border: solid red 1px;
+  overflow: hidden;
+}
+
+main .slider .elem {
+  height: 15rem;
+  width: 15rem;
+  display: none;
+}
+
+main .slider .elem1 {
+  background-color: lightgreen;
+}
+
+main .slider .elem2 {
+  background-color: lightblue;
+}
+
+main .slider .elem3 {
+  background-color: lightcoral;
+}
+
+main .slider .elem4 {
+  background-color: lightpink;
+}
+
+main .slider .elem5 {
+  background-color: lightseagreen;
+}
